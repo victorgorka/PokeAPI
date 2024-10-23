@@ -159,6 +159,7 @@
 			const loadingText = document.createElement('p');
 			loadingText.textContent = 'Generando Pokemon...';
 			const container = document.querySelector('#cont');
+			(button as HTMLButtonElement).disabled = true;
 			if (container) {
 				container.appendChild(loadingText);
 			} else {
@@ -168,21 +169,27 @@
 			fetch(`https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}`)
 				.then(response => response.blob())
 				.then(blob => {
-					const img = document.createElement('img');
-					img.src = URL.createObjectURL(blob);
-					img.alt = `Pokemon generado a partir de ${animal1Value} y ${animal2Value}`;
 					if (container) {
+						const existingImg = container.querySelector('img');
+						if (existingImg) {
+							container.removeChild(existingImg);
+						}
+						const img = document.createElement('img');
+						img.src = URL.createObjectURL(blob);
+						img.alt = `Pokemon generado a partir de ${animal1Value} y ${animal2Value}`;
 						container.removeChild(loadingText);
 						container.appendChild(img);
 					} else {
 						console.error('Container element not found');
 					}
+					(button as HTMLButtonElement).disabled = false;
 				})
 				.catch(error => {
 					console.error('Error fetching image:', error);
 					if (container) {
 						container.removeChild(loadingText);
 					}
+					(button as HTMLButtonElement).disabled = false;
 				});
 			console.log(animal1Value, animal2Value);
 		});
