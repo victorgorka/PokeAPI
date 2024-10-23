@@ -12,7 +12,8 @@
 	</head>
 	<body>
 		<h1>PokeAPI</h1>
-		<div class="container">
+		<p>Selecciona dos animales para generar un Pokemon como una combinacion de ambos</p>
+		<div class="container" id="cont">
 			<form>
 				<label for="animal">Animal 1</label>
 				<select name="animals" id="animal1">
@@ -66,7 +67,7 @@
 				</select>
 
 			</form>
-			<button>Generar Pokemon</button>
+			<button id="pokeGen">Generar Pokemon</button>
 		</div>
 	</body>
 	<style>
@@ -78,6 +79,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+		}
+		p {
+			text-align: center;
+			margin-bottom: 1rem;
 		}
 		body {
 			background-color: $off-white;
@@ -130,4 +135,58 @@
 				font-size: 3vw;
 			}
 		}
+	</style>
 </html>
+
+<script>
+	const button = document.querySelector('#pokeGen');
+	const animal1 = document.querySelector('#animal1');
+	const animal2 = document.querySelector('#animal2');
+
+	if (button &&
+		animal1 instanceof HTMLSelectElement &&
+		animal2 instanceof HTMLSelectElement) {
+		console.log('All elements found');
+		button.addEventListener('click', (event) => {
+			event.preventDefault();
+			if (!animal1.value || !animal2.value) {
+				console.error('One or more values not selected');
+				return;
+			}
+			const animal1Value = animal1.value;
+			const animal2Value = animal2.value;
+			const prompt = `Crea un pokemon combinanto un ${animal1Value} y un ${animal2Value}`;
+			const loadingText = document.createElement('p');
+			loadingText.textContent = 'Generando Pokemon...';
+			const container = document.querySelector('#cont');
+			if (container) {
+				container.appendChild(loadingText);
+			} else {
+				console.error('Container element not found');
+			}
+
+			fetch(`https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}`)
+				.then(response => response.blob())
+				.then(blob => {
+					const img = document.createElement('img');
+					img.src = URL.createObjectURL(blob);
+					img.alt = `Pokemon generado a partir de ${animal1Value} y ${animal2Value}`;
+					if (container) {
+						container.removeChild(loadingText);
+						container.appendChild(img);
+					} else {
+						console.error('Container element not found');
+					}
+				})
+				.catch(error => {
+					console.error('Error fetching image:', error);
+					if (container) {
+						container.removeChild(loadingText);
+					}
+				});
+			console.log(animal1Value, animal2Value);
+		});
+	} else {
+		console.error('One or more elements not found');
+	}
+</script>
