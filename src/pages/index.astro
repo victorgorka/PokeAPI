@@ -14,7 +14,7 @@
 		<h1>PokeAPI</h1>
 		<div class="container">
 			<form>
-				<label for="animal" id="animal2">Animal 1</label>
+				<label for="animal">Animal 1</label>
 				<select name="animals" id="animal1">
 					<option selected disabled>Selecciona un animal</option>
 					<option value="perro">perro</option>
@@ -39,8 +39,8 @@
 					<option value="rana">rana</option>
 					<option value="caballo">caballo</option>
 				</select>
-				<label for="animal" id="animal2">Animal 2</label>
-				<select name="animals" id="animal1">
+				<label for="animal" >Animal 2</label>
+				<select name="animals" id="animal2">
 					<option selected disabled>Selecciona un animal</option>
 					<option value="perro">perro</option>
 					<option value="gato">gato</option>
@@ -66,8 +66,8 @@
 				</select>
 
 			</form>
+			<button>Generar Pokemon</button>
 		</div>
-		<button>Generate Pokemon</button>
 	</body>
 	<style>
 		.container {
@@ -75,16 +75,11 @@
 			padding: 2rem;
 			border-radius: 0.5rem;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 		}
 		body {
-			/* font-family: sans-serif;
-			margin: 0;
-			padding: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-			background-color: #f0f0f0; */
 			background-color: $off-white;
 			color: $black;
 			font-family: $sans-serif;
@@ -95,7 +90,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: flex-start;
+			align-items: center;
 		}
 		h1 {
 			text-align: center;
@@ -118,8 +113,21 @@
 		button {
 			padding: 0.5rem 1rem;
 			background-color: #333;
+			display: felx;
+			justify-content: center;
 			color: white;
 			border: none;
 			cursor: pointer;
+		}
+		@media (max-width: 600px) {
+			h1 {
+				font-size: 8vw;
+			}
+	    }
+
+		@media (min-width: 1200px) {
+			h1 {
+				font-size: 3vw;
+			}
 		}
 </html>
