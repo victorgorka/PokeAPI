@@ -12,34 +12,114 @@
 	</head>
 	<body>
 		<h1>PokeAPI</h1>
-		<form>
-			<label for="animal">Animal 1</label>
-			<select name="animals" id="animal1">
-				<option value="perro">perro</option>
-				<option value="gato">gato</option>
-				<option value="conejo">conejo</option>
-				<option value="pajaro">pajaro</option>
-				<option	value="pez">pez</option>
-				<option value="tortuga">tortuga</option>
-				<option value="leon">leon</option>
-				<option value="elefante">elefante</option>
-				<option value="jirafa">jirafa</option>
-				<option value="mono">mono</option>
-				<option value="oso">oso</option>
-				<option value="tigre">tigre</option>
-				<option value="cocodrilo">cocodrilo</option>
-				<option value="serpiente">serpiente</option>
-				<option value="aguila">aguila</option>
-				<option value="zorro">zorro</option>
-				<option value="ciervo">ciervo</option>
-				<option value="lobo">lobo</option>
-				<option value="murcielago">murcielago</option>
-				<option value="rana">rana</option>
-				<option value="caballo">caballo</option>
-			</select>
-			
-		</form>
-		<button>Get Pokemon</button>
-		<p>Click the button to get a random Pokemon</p>
+		<div class="container">
+			<form>
+				<label for="animal" id="animal2">Animal 1</label>
+				<select name="animals" id="animal1">
+					<option selected disabled>Selecciona un animal</option>
+					<option value="perro">perro</option>
+					<option value="gato">gato</option>
+					<option value="conejo">conejo</option>
+					<option value="pajaro">pajaro</option>
+					<option	value="pez">pez</option>
+					<option value="tortuga">tortuga</option>
+					<option value="leon">leon</option>
+					<option value="elefante">elefante</option>
+					<option value="jirafa">jirafa</option>
+					<option value="mono">mono</option>
+					<option value="oso">oso</option>
+					<option value="tigre">tigre</option>
+					<option value="cocodrilo">cocodrilo</option>
+					<option value="serpiente">serpiente</option>
+					<option value="aguila">aguila</option>
+					<option value="zorro">zorro</option>
+					<option value="ciervo">ciervo</option>
+					<option value="lobo">lobo</option>
+					<option value="murcielago">murcielago</option>
+					<option value="rana">rana</option>
+					<option value="caballo">caballo</option>
+				</select>
+				<label for="animal" id="animal2">Animal 2</label>
+				<select name="animals" id="animal1">
+					<option selected disabled>Selecciona un animal</option>
+					<option value="perro">perro</option>
+					<option value="gato">gato</option>
+					<option value="conejo">conejo</option>
+					<option value="pajaro">pajaro</option>
+					<option	value="pez">pez</option>
+					<option value="tortuga">tortuga</option>
+					<option value="leon">leon</option>
+					<option value="elefante">elefante</option>
+					<option value="jirafa">jirafa</option>
+					<option value="mono">mono</option>
+					<option value="oso">oso</option>
+					<option value="tigre">tigre</option>
+					<option value="cocodrilo">cocodrilo</option>
+					<option value="serpiente">serpiente</option>
+					<option value="aguila">aguila</option>
+					<option value="zorro">zorro</option>
+					<option value="ciervo">ciervo</option>
+					<option value="lobo">lobo</option>
+					<option value="murcielago">murcielago</option>
+					<option value="rana">rana</option>
+					<option value="caballo">caballo</option>
+				</select>
+
+			</form>
+		</div>
+		<button>Generate Pokemon</button>
 	</body>
+	<style>
+		.container {
+			background-color: #fff;
+			padding: 2rem;
+			border-radius: 0.5rem;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		body {
+			/* font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #f0f0f0; */
+			background-color: $off-white;
+			color: $black;
+			font-family: $sans-serif;
+			min-height: 30vh;
+			width: 100%;
+			padding: 2.5vh 10vw;
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+		}
+		h1 {
+			text-align: center;
+			align-items: center;
+			padding: 1rem;
+			margin-bottom: 1rem;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		label {
+			margin-bottom: 0.5rem;
+		}
+		select {
+			padding: 0.5rem;
+			margin-bottom: 1rem;
+		}
+		button {
+			padding: 0.5rem 1rem;
+			background-color: #333;
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
 </html>
